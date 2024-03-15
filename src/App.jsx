@@ -1,17 +1,32 @@
-import { useState } from 'react'
-import axios from 'axios'
+import React, { useState } from "react";
 import './App.css'
 
+import CarMake from './pages/CarMake'
+import CarType from './pages/CarType'
+import CarYear from './pages/CarYear'
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+  };
 
   return (
     <>
       <div>
-        <h1>Cars</h1>
-       </div>
+        <h1>Car Gallery</h1>
+        <div className="categories">
+          <button onClick={() => handleCategoryClick("CarMake")}>Make</button>
+          <button onClick={() => handleCategoryClick("CarType")}>Type</button>
+          <button onClick={() => handleCategoryClick("CarYear")}>Year</button>
+        </div>
+        {selectedCategory === "CarMake" && <CarMake />}
+        {selectedCategory === "CarType" && <CarType />}
+        {selectedCategory === "CarYear" && <CarYear />}
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
