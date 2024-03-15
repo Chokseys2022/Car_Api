@@ -1,9 +1,13 @@
-import React, { useState } from "react";
-import './App.css'
+//App.jsx
 
-import CarMake from './pages/CarMake'
-import CarType from './pages/CarType'
-import CarYear from './pages/CarYear'
+//Imports
+import React, { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import CarMake from "./pages/CarMake";
+import CarType from "./pages/CarType";
+import CarYear from "./pages/CarYear";
+import NavBar from "./components/NavBar";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
